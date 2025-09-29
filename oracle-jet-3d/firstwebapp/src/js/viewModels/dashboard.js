@@ -8,12 +8,25 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['../accUtils'],
- function(accUtils) {
+define(['../accUtils','knockout','ojs/ojchart'],
+ function(accUtils,ko) {
     function DashboardViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
 
+      var self= this;
+      self.name = ko.observable("Purushotham");
+      self.age  = ko.observable("35");
+      var data = [
+                    {name:"Pedestrians", items:[42]},
+                    {name:"Vehicles", items:[82]},
+                    {name:"Bicycles", items:[20]},
+                    {name:"Busses", items:[76]},
+                    {name:"Trains", items:[31]}
+                  
+                  ];
+
+      self.datasource = ko.observableArray(data);
       /**
        * Optional ViewModel method invoked after the View is inserted into the
        * document DOM.  The application can put logic that requires the DOM being
