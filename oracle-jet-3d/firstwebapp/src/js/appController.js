@@ -40,6 +40,7 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
         { path: 'customers', detail: { label: 'Customers', iconClass: 'oj-ux-ico-contact-group' } },
         { path: 'calculator', detail: { label: 'Calculator', iconClass: 'oj-ux-ico-calculator-chart' } },
         { path: 'employees', detail: { label: 'Employees', iconClass: 'oj-ux-ico-contact-group' } },
+        { path: 'fdcalculator', detail: { label: 'FDCalculator', iconClass: 'oj-ux-ico-calculator-chart' } },
         { path: 'about', detail: { label: 'About', iconClass: 'oj-ux-ico-information-s' } }
       ];
 
