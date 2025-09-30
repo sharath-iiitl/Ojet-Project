@@ -15,12 +15,15 @@
       <h3>Your name is <span data-bind="text:name"> </span> and age is <span data-bind="text:age"> </span><h3>
 
       <h3>Please follow the statistics</h3>
-      <div style="width: 50%;">
-        <oj-chart type = "bar" series ="[[datasource]]">
-        </oj-chart>
-    </div>
-    <h3>Your time should be distributed the following way</h3>
-  <oj-chart type = "pie" series ="[[datasource2]]">
-    </oj-chart>
+      <oj-select-single
+              id="select1"
+              label-hint="Select Single with ArrayDataProvider"
+              label-edge="inside"
+              class="oj-form-control-max-width-md"
+              data="[[chartsDP]]"
+              value="{{selectVal}}"></oj-select-single>
+      <oj-chart type = "{{selectVal}}" series ="[[datasource]]"></oj-chart>
+      <h3>Your time should be distributed the following way</h3>
+      <!-- <oj-chart type = "pie" series ="[[datasource2]]"></oj-chart> -->
 </div>
 </div>

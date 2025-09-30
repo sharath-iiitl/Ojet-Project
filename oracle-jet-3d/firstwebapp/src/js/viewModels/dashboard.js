@@ -8,8 +8,8 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['../accUtils','knockout','ojs/ojchart','text!data/data.json'],
- function(accUtils,ko,chart,file) {
+define(['../accUtils','knockout','ojs/ojchart','text!data/data.json','ojs/ojarraydataprovider','ojs/ojselectsingle'],
+ function(accUtils,ko,chart,file,ArrayDataProvider) {
     function DashboardViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
@@ -30,6 +30,16 @@ define(['../accUtils','knockout','ojs/ojchart','text!data/data.json'],
 
       var data2 = JSON.parse(file);
       self.datasource2 = ko.observableArray(data2);
+
+
+      self.selectVal = ko.observable('pie');
+
+    var chartoptions = [
+        { value: 'pie', label: 'pie' },
+        { value: 'bar', label: 'bar' }
+      ];
+  
+    self.chartsDP = new ArrayDataProvider(chartoptions, { keyAttributes: 'value' });
       /**
        * Optional ViewModel method invoked after the View is inserted into the
        * document DOM.  The application can put logic that requires the DOM being
