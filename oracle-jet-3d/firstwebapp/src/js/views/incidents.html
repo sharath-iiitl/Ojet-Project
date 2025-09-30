@@ -8,4 +8,11 @@
   <div>
       To change the content of this section, you will make edits to the incidents.html file located in the /js/views folder.
   </div>
+  <oj-table id="table" summary="Common Model" aria-label="Common Model Demo"
+                                        data='[[datasource]]' 
+                                        columns='[
+                                        {"headerText": "Name", "field": "name"},
+                                        {"headerText": "Description", "field": "short_desc"}
+                                        ]'>
+</oj-table>
 </div>
