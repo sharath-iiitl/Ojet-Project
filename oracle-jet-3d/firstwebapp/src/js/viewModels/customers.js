@@ -8,11 +8,22 @@
 /*
  * Your customer ViewModel code goes here
  */
-define(['../accUtils'],
- function(accUtils) {
+define(['../accUtils','ojs/ojarraydataprovider','ojs/ojtable','ojs/ojpagingcontrol','ojs/ojpagingdataproviderview'],
+ function(accUtils, ArrayDataProvider, ojTable, ojPagingControl, PagingDataProviderView) {
     function CustomerViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
+
+
+
+      var deptArray = [{DepartmentId: 1001, DepartmentName: 'ADFPM 1001 neverending', LocationId: 200, ManagerId: 300},
+                      {DepartmentId: 556, DepartmentName: 'BB', LocationId: 200, ManagerId: 300},
+                      {DepartmentId: 110, DepartmentName: 'Marketing13', LocationId: 200, ManagerId: 300},
+                      {DepartmentId: 120, DepartmentName: 'Purchasing14', LocationId: 200, ManagerId: 300},
+                      {DepartmentId: 130, DepartmentName: 'Human Resources15', LocationId: 200, ManagerId: 300}];
+
+  self.dataProvider = new ArrayDataProvider(deptArray, {keyAttributes: 'DepartmentId'});
+  self.pagingDataProvider =  new PagingDataProviderView(new ArrayDataProvider(deptArray, {keyAttributes: 'DepartmentId'}));
 
       /**
        * Optional ViewModel method invoked after the View is inserted into the
