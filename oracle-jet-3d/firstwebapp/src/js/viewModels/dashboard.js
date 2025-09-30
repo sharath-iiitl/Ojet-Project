@@ -16,7 +16,23 @@ define(['../accUtils','knockout','ojs/ojchart','text!data/data.json','ojs/ojarra
 
       var self= this;
       self.name = ko.observable("Purushotham");
-      self.age  = ko.observable("35");
+      // Add dob observable
+      self.dob = ko.observable("");
+      // Computed age from dob
+      self.age = ko.computed(function() {
+        var dobStr = self.dob();
+        if (!dobStr) return "";
+        var dob = new Date(dobStr);
+        if (isNaN(dob.getTime())) return "Invalid date";
+        var today = new Date();
+        var age = today.getFullYear() - dob.getFullYear();
+        var m = today.getMonth() - dob.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+          age--;
+        }
+        return age;
+      });
+        
       var data = [
                     {name:"Pedestrians", items:[42]},
                     {name:"Vehicles", items:[82]},
